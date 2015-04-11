@@ -44,14 +44,14 @@
 
 :ruby
   code = <<-HEREDOC
-    ...
-    group :assets do
-      gem 'twitter-bootstrap-rails'
-      gem 'sass-rails',   '~> 3.2.3'
-      gem 'coffee-rails', '~> 3.2.1'
-      ...
+  ...
+  gem 'twitter-bootstrap-rails'
+  gem 'less-rails'
+  gem 'therubyracer'
+  ...
   HEREDOC
-= tutorial_for("ruby","Open <code>Gemfile</code>, add the twitter-bootstrap-rails gem in the assets group", code, [3])
+= tutorial_for("ruby","Open <code>Gemfile</code>, add the twitter-bootstrap-rails gem", code, [2, 3, 4])
+
 
 :ruby
   code = <<-HEREDOC

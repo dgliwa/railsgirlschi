@@ -126,7 +126,7 @@ We'll do this in three steps:
   end
 
   def create
-    @address = Address.new(params[:address])
+    @address = Address.new(params.require(:address).permit(:location, :name))
     if @address.save
       redirect_to @address
     else
@@ -150,7 +150,7 @@ We'll do this in three steps:
   code = <<-HEREDOC
   ...
   def create
-    @address = Address.new(params[:address])
+    @address = Address.new(params.require(:address).permit(:location, :name))
     if @address.save
       redirect_to @address
     else
@@ -181,8 +181,6 @@ We'll do this in three steps:
 :ruby
   code = <<-HEREDOC
     class Address < ActiveRecord::Base
-      attr_accessible :location, :name
-
       validates_uniqueness_of :name
     end
   HEREDOC
