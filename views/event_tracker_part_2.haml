@@ -129,8 +129,6 @@
 :ruby
   code = <<-HEREDOC
   class Event < ActiveRecord::Base
-    attr_accessible :name, :description, :location
-
     has_many :participants
   end
   HEREDOC
@@ -139,8 +137,6 @@
 :ruby
   code = <<-HEREDOC
   class Participant < ActiveRecord::Base
-    attr_accessible :name, :guests, :event_id
-
     belongs_to :event
   end
   HEREDOC
@@ -288,8 +284,6 @@
 :ruby
   code = <<-HEREDOC
   class Event < ActiveRecord::Base
-    attr_accessible :name, :description, :location
-
     has_many :participants
 
     def total_participants
@@ -343,8 +337,6 @@
 :ruby
   code = <<-HEREDOC
   class Participant < ActiveRecord::Base
-    attr_accessible :guests, :name, :event_id
-
     belongs_to :event
 
     def popularity_label

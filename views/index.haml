@@ -36,7 +36,7 @@
         end
 
         def create
-            @list = List.new(params[:list])
+            @list = List.new(params.require(:list).permit(:name, :reason))
             if @list.save
                 redirect_to lists_url
             else
