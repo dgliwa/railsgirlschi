@@ -152,7 +152,7 @@
     def update
       @list = List.find(params[:id])
 
-      if @list.update_attributes(params[:list])
+      if @list.update_attributes(params.require(:list).permit(:name, :reason))
         redirect_to lists_path
       else
         render action: "edit"
@@ -213,7 +213,7 @@
     end
 
     def create
-      @list = List.new(params[:list])
+      @list = List.new(params.require(:list).permit(:name, :reason))
       if @list.save
         redirect_to lists_url
       else
@@ -228,7 +228,7 @@
     def update
       @list = List.find(params[:id])
 
-      if @list.update_attributes(params[:list])
+      if @list.update_attributes(params.require(:list).permit(:name, :reason))
         redirect_to lists_path
       else
         render action: "edit"
@@ -293,7 +293,7 @@
     def update
       @list = List.find(params[:id])
 
-      if @list.update_attributes(params[:list])
+      if @list.update_attributes(params.require(:list).permit(:name, :reason))
         redirect_to lists_path
       else
         render action: "edit"

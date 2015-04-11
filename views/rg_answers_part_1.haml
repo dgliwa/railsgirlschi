@@ -135,7 +135,7 @@
     end
 
     def create
-      @question = Question.new(params[:question])
+      @question = Question.new(params.require(:question).permit(:name, :reason))
       if @question.save
         redirect_to questions_url
       else
@@ -150,7 +150,7 @@
     def update
       @question = Question.find(params[:id])
 
-      if @question.update_attributes(params[:question])
+      if @question.update_attributes(params.require(:question).permit(:name, :reason))
         redirect_to questions_path
       else
         render action: "edit"
@@ -210,7 +210,7 @@
     end
 
     def create
-      @question = Question.new(params[:question])
+      @question = Question.new(params.require(:question).permit(:name, :reason))
       if @question.save
         redirect_to questions_url
       else
@@ -225,7 +225,7 @@
     def update
       @question = Question.find(params[:id])
 
-      if @question.update_attributes(params[:question])
+      if @question.update_attributes(params.require(:question).permit(:name, :reason))
         redirect_to questions_path
       else
         render action: "edit"
@@ -275,7 +275,7 @@
     end
 
     def create
-      @question = Question.new(params[:question])
+      @question = Question.new(params.require(:question).permit(:name, :reason))
       if @question.save
         redirect_to questions_url
       else
@@ -290,7 +290,7 @@
     def update
       @question = Question.find(params[:id])
 
-      if @question.update_attributes(params[:question])
+      if @question.update_attributes(params.require(:question).permit(:name, :reason))
         redirect_to questions_path
       else
         render action: "edit"

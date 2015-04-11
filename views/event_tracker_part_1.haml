@@ -92,7 +92,7 @@
     end
 
     def create
-      @event = Event.new(params[:event])
+      @event = Event.new(params.require(:event).permit(:name, :description, :location))
       if @event.save
         redirect_to events_url
       else
@@ -143,7 +143,7 @@
     end
 
     def create
-      @event = Event.new(params[:event])
+      @event = Event.new(params.require(:event).permit(:name, :description, :location))
       if @event.save
         redirect_to events_url
       else
@@ -158,7 +158,7 @@
     def update
       @event = Event.find(params[:id])
 
-      if @event.update_attributes(params[:event])
+      if @event.update_attributes(params.require(:event).permit(:name, :description, :location))
         redirect_to events_path
       else
         render action: "edit"
@@ -225,7 +225,7 @@
     end
 
     def create
-      @event = Event.new(params[:event])
+      @event = Event.new(params.require(:event).permit(:name, :description, :location))
       if @event.save
         redirect_to events_url
       else
@@ -240,7 +240,7 @@
     def update
       @event = Event.find(params[:id])
 
-      if @event.update_attributes(params[:event])
+      if @event.update_attributes(params.require(:event).permit(:name, :description, :location))
         redirect_to events_path
       else
         render action: "edit"
@@ -292,7 +292,7 @@
     end
 
     def create
-      @event = Event.new(params[:event])
+      @event = Event.new(params.require(:event).permit(:name, :description, :location))
       if @event.save
         redirect_to events_url
       else
@@ -307,7 +307,7 @@
     def update
       @event = Event.find(params[:id])
 
-      if @event.update_attributes(params[:event])
+      if @event.update_attributes(params.require(:event).permit(:name, :description, :location))
         redirect_to events_path
       else
         render action: "edit"
